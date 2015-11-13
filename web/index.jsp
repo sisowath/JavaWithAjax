@@ -8,7 +8,7 @@
 <script language="javascript">
     var xho;
     function go(pays) {
-      var url = "getVilles.jsp?pays="+pays;
+      var url = "getVilles.jsp?pays=" + pays;
       if (window.ActiveXObject) {//si Internet Explorer
             xho = new ActiveXObject("Microsoft.XMLHTTP");
             if (xho) {
@@ -33,7 +33,7 @@
       if (xho.readyState == 4) //complété
         if (xho.status == 200)  //réponse OK
             {
-              document.getElementById("villes").innerHTML = "Status text : "+xho.statusText+"<br />"+xho.responseText;
+              document.getElementById("villes").innerHTML = /*"Status text : "+xho.statusText+"<br />"+*/xho.responseText;
             }
             else
             {
@@ -44,8 +44,12 @@
 </script>
 </head>
 <body>
-    Pays : <select id="pays" name="pays" onchange="go(this.value)">
-        <option value="--choisir--">--Choisir--</option>
+    <table border="1px solid black">
+        <tr>
+            <td>Pays : </td>
+            <td>
+                <select id="pays" name="pays" onchange="go(this.value)">
+                    <option value="--choisir--">--Choisir--</option>
 <%
     Class.forName( request.getServletContext().getInitParameter("jdbcDriver") );
     Connexion.setUrl( request.getServletContext().getInitParameter("databaseURL") );    
@@ -55,7 +59,10 @@
         out.println("<option value=\"" + listeDesPays.get(i).getNom() + "\">" + listeDesPays.get(i).getNom() + "</option>");
     }
 %>
-    </select>
-    <span id="villes"></span>
+                </select>
+            </td>
+            <td><div id="villes"></div></td>
+        </tr>
+    </table>    
 </body>
 </html>

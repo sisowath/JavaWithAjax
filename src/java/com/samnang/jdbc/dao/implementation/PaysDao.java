@@ -126,7 +126,7 @@ public class PaysDao extends Dao<Pays> {
         List<Pays> liste = new LinkedList<Pays>();
         try {
             Statement stm = cnx.createStatement();
-            ResultSet r = stm.executeQuery("SELECT * FROM pays");
+            ResultSet r = stm.executeQuery("SELECT * FROM pays GROUP BY nom");
             while (r.next()) {
                 Pays c = new Pays(r.getInt("id"), r.getString("nom"), r.getString("ville"));
                 liste.add(c);
@@ -143,6 +143,7 @@ public class PaysDao extends Dao<Pays> {
         PreparedStatement stm = null;
         try {
             stm = cnx.prepareStatement("SELECT * FROM pays WHERE nom = ?");
+            stm.setString(1, nom);
             ResultSet r = stm.executeQuery();
             while (r.next()) {
                 Pays c = new Pays(r.getInt("id"), r.getString("nom"), r.getString("ville"));
