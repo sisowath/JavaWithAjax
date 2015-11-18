@@ -42,6 +42,7 @@
             }
     }
 </script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>    
 </head>
 <body>
     <table border="1px solid black">
@@ -63,6 +64,23 @@
             </td>
             <td><div id="villes"></div></td>
         </tr>
-    </table>    
+    </table> 
+    <hr />    
+    <div id="utilisateursPresents">
+        
+    </div>
+    <script>
+        
+        $(window).load(function(){
+            
+            var fakeThread = setInterval(retrieveUsers, 1000);
+            
+            function retrieveUsers() {
+                $("#utilisateursPresents").load("getUtilisateurs.jsp table"); 
+            };
+            
+        });
+        
+    </script>
 </body>
 </html>

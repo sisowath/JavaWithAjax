@@ -2,10 +2,10 @@
 -- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
--- Client :  localhost
--- Généré le :  Ven 13 Novembre 2015 à 15:21
--- Version du serveur :  5.6.20-log
--- Version de PHP :  5.4.31
+-- Host: localhost
+-- Generation Time: Nov 18, 2015 at 11:26 AM
+-- Server version: 5.6.20-log
+-- PHP Version: 5.4.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données :  `javawithajax`
+-- Database: `javawithajax`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `pays`
+-- Table structure for table `pays`
 --
 
 CREATE TABLE IF NOT EXISTS `pays` (
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `pays` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_bin AUTO_INCREMENT=7 ;
 
 --
--- Contenu de la table `pays`
+-- Dumping data for table `pays`
 --
 
 INSERT INTO `pays` (`id`, `nom`, `ville`) VALUES
@@ -44,24 +44,60 @@ INSERT INTO `pays` (`id`, `nom`, `ville`) VALUES
 (5, 'usa', 'california'),
 (6, 'canada', 'quebec');
 
+-- --------------------------------------------------------
+
 --
--- Index pour les tables exportées
+-- Table structure for table `utilisateur`
+--
+
+CREATE TABLE IF NOT EXISTS `utilisateur` (
+`id` int(11) NOT NULL,
+  `nom` varchar(100) COLLATE latin1_bin NOT NULL,
+  `prenom` varchar(100) COLLATE latin1_bin NOT NULL,
+  `etat` varchar(20) COLLATE latin1_bin NOT NULL DEFAULT 'absent'
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_bin AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `etat`) VALUES
+(1, 'suon', 'samnang', 'active'),
+(2, 'kerr', 'miranda', 'active'),
+(3, 'swanepoel', 'candice', 'active'),
+(4, 'keegan', 'michelle', 'absent'),
+(5, 'johansson', 'scarlett', 'absent'),
+(6, 'lawrence', 'jennifer', 'absent');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `pays`
+-- Indexes for table `pays`
 --
 ALTER TABLE `pays`
  ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- Indexes for table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `pays`
+-- AUTO_INCREMENT for table `pays`
 --
 ALTER TABLE `pays`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `utilisateur`
+--
+ALTER TABLE `utilisateur`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
