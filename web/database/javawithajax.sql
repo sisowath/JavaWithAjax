@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 18, 2015 at 11:26 AM
+-- Generation Time: Dec 04, 2015 at 12:56 AM
 -- Server version: 5.6.20-log
 -- PHP Version: 5.4.31
 
@@ -19,6 +19,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `javawithajax`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `message`
+--
+
+CREATE TABLE IF NOT EXISTS `message` (
+`id` int(11) NOT NULL,
+  `messagesend` varchar(100) COLLATE latin1_bin NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_bin AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `message`
+--
+
+INSERT INTO `message` (`id`, `messagesend`) VALUES
+(1, 'Bonjour tout le monde !!'),
+(2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed molestie justo vel ex consequat, vitae '),
+(3, 'I love you Miranda!!'),
+(4, 'Hello World !'),
+(5, 'Bravo pour le site'),
+(6, 'bienvenue'),
+(7, 'Can anybody hep me'),
+(8, 'Yes ? What do you need ?');
 
 -- --------------------------------------------------------
 
@@ -74,6 +99,12 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `etat`) VALUES
 --
 
 --
+-- Indexes for table `message`
+--
+ALTER TABLE `message`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `pays`
 --
 ALTER TABLE `pays`
@@ -89,6 +120,11 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `message`
+--
+ALTER TABLE `message`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `pays`
 --

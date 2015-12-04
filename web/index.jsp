@@ -41,6 +41,12 @@
               //alert("Problème : "+xho.statusText);
             }
     }
+    function publier() {
+        var message = document.getElementById("inputMessage").value;
+        //alert(message);
+        $.post("setMessage.jsp?message="+message);
+        //$.load("setMessage.jsp?message="+message);
+    }
 </script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>    
 </head>
@@ -69,6 +75,16 @@
     <div id="utilisateursPresents">
         
     </div>
+    
+    <div id="publishedMessage" style="border: 1px solid black; display: inline" width="800px">
+        
+    </div>
+    <form onsubmit="publier()">
+        <tr>
+            <td><input id="inputMessage" type="text" /></td>
+        </tr>
+    </form>
+    
     <script>
         
         $(window).load(function(){
@@ -77,8 +93,8 @@
             
             function retrieveUsers() {
                 $("#utilisateursPresents").load("getUtilisateurs.jsp table"); 
-            };
-            
+                $("#publishedMessage").load("getMessage.jsp");
+            };            
         });
         
     </script>
